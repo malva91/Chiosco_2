@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Guida Turistica di Pisa</title>
+    <meta name="description" content="Scopri Pisa con la guida turistica smart sponsorizzata da Il Barrino">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Header con menu di navigazione -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <h2 id="nav-title">Pisa Guide</h2>
+                </div>
+                
+                <!-- Language Selector -->
+                <div class="language-selector">
+                    <select id="language-select" class="lang-select">
+                        <option value="it">🇮🇹 Italiano</option>
+                        <option value="en">🇬🇧 English</option>
+                    </select>
+                </div>
+                
+                <!-- Navigation Tabs -->
+                <ul class="nav-tabs" id="nav-tabs">
+                    <li><a href="#" class="nav-tab active" data-tab="home" id="nav-home">Home</a></li>
+                    <li><a href="#" class="nav-tab" data-tab="places" id="nav-places">Luoghi</a></li>
+                    <li><a href="#" class="nav-tab" data-tab="events" id="nav-events">Info Eventi</a></li>
+                    <li><a href="#" class="nav-tab" data-tab="tips" id="nav-tips">Consigli</a></li>
+                </ul>
+                
+                <!-- Mobile Menu Toggle -->
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <!-- Home Tab - Sponsor Section -->
+        <section id="home-tab" class="tab-content active">
+            <div class="hero-sponsor">
+                <div class="sponsor-container">
+                    <div class="sponsor-content">
+                        <div class="sponsor-badge">
+                            <span id="sponsored-by">Offerto da Il Barrino</span>
+                        </div>
+                        <h1 id="hero-headline" class="hero-title">Scopri Pisa con Il Barrino</h1>
+                        <p id="hero-subtitle" class="hero-subtitle">Una guida locale per la tua visita</p>
+                        
+                        <div class="sponsor-info">
+                            <div class="sponsor-card">
+                                <div class="sponsor-image">
+                                    <div class="restaurant-visual"></div>
+                                </div>
+                                <div class="sponsor-details">
+                                    <h3 id="sponsor-name">Il Barrino</h3>
+                                    <p id="sponsor-description">Dal 1970, il chiosco bar di riferimento nel cuore di Pisa. Un punto di ritrovo autentico dove gustare caffè, aperitivi e snack in un'atmosfera familiare e accogliente.</p>
+                                    <div class="sponsor-features" id="sponsor-features">
+                                        <!-- Features loaded dynamically -->
+                                    </div>
+                                    <div class="sponsor-contact">
+                                        <p><strong id="contact-address-label">Indirizzo:</strong> <span id="sponsor-address">Via Cardinale Maffi 56, Pisa</span></p>
+                                        <p><strong id="contact-email-label">Email:</strong> <span id="sponsor-email">info@ilbarrino.it</span></p>
+                                        <p><strong id="contact-hours-label">Orari:</strong> <span id="sponsor-hours">Tutti i giorni 07:00-20:00</span></p>
+                                    </div>
+                                    <div class="sponsor-menu-button">
+                                        <a href="mailto:info@ilbarrino.it" class="menu-btn">
+                                            <span>Vieni a trovarci</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Places Tab -->
+        <section id="places-tab" class="tab-content">
+            <div class="container">
+                <div class="section-header">
+                    <h2 id="places-title" class="section-title">Luoghi di Interesse</h2>
+                    <p id="places-subtitle" class="section-subtitle">Scopri i tesori di Pisa</p>
+                </div>
+                <div id="places-grid" class="content-grid">
+                    <!-- Places loaded dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Events Tab -->
+        <section id="events-tab" class="tab-content">
+            <div class="container">
+                <div class="section-header">
+                    <h2 id="events-title" class="section-title">Info Eventi</h2>
+                    <p id="events-subtitle" class="section-subtitle">Non perdere gli appuntamenti più interessanti</p>
+                </div>
+                <div id="events-grid" class="content-grid">
+                    <!-- Events loaded dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Tips Tab -->
+        <section id="tips-tab" class="tab-content">
+            <div class="container">
+                <div class="section-header">
+                    <h2 id="tips-title" class="section-title">Consigli Utili</h2>
+                    <p id="tips-subtitle" class="section-subtitle">Tutto quello che devi sapere per una visita perfetta</p>
+                </div>
+                <div id="tips-grid" class="content-grid">
+                    <!-- Tips loaded dynamically -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-sponsor">
+                    <h3>Il Barrino</h3>
+                    <p id="footer-sponsor-text">Il tuo chiosco bar dal 1970</p>
+                </div>
+                <div class="footer-social">
+                    <h4 id="footer-follow">Seguici</h4>
+                    <div class="social-links">
+                        <a href="mailto:info@ilbarrino.it" class="social-link">📧</a>
+                        <a href="#" class="social-link">📱</a>
+                        <a href="#" class="social-link">🌐</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p id="footer-copyright">&copy; 2025 Guida Turistica di Pisa - Sponsorizzato da Il Barrino</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Loading Animation -->
+    <div id="loading" class="loading">
+        <div class="loading-spinner"></div>
+    </div>
+
+    
+    <!-- Firebase + Translation (shared) -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <!-- Application constants -->
+    <script src="../src/utils/constants.js"></script>
+    <!-- Shared utilities (optional) -->
+    <script src="../src/js/core/utils.js"></script>
+    <!-- Firebase service -->
+    <script src="../src/js/core/firebaseService.js"></script>
+
+    <!-- Guide application (Pisa tourist guide) -->
+    <script src="../src/js/features/guide.js"></script>
+</body>
+</html>

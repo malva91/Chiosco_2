@@ -1,0 +1,261 @@
+{
+  "meta": {
+    "title": "Guida Turistica di Pisa - Scopri la città con Il Barrino da Mario",
+    "nav_title": "Pisa Guide",
+    "sponsored_by": "Offerto da Il Barrino"
+  },
+  "hero": {
+    "headline": "Scopri Pisa con Il Barrino",
+    "subtitle": "Una guida locale per la tua visita alla città della Torre Pendente"
+  },
+  "menu": {
+    "home": "Home",
+    "places": "Luoghi",
+    "info_events": "Info Eventi",
+    "tips": "Consigli"
+  },
+  "sponsor": {
+    "name": "Il Barrino",
+    "description": "Dal 1970, il chiosco bar di riferimento nel cuore di Pisa. Un punto di ritrovo autentico dove gustare caffè, aperitivi e snack in un'atmosfera familiare e accogliente.",
+    "address": "Via Cardinale Maffi 56, Pisa",
+    "email": "info@ilbarrino.it",
+    "hours": "Tutti i giorni 07:00-20:00",
+    "features": [
+      "Chiosco bar dal 1970",
+      "Caffè e aperitivi di qualità",
+      "Ambiente familiare e accogliente",
+      "Punto di ritrovo nel centro di Pisa"
+    ],
+    "menu_button": "Vieni a trovarci",
+    "menu_message": "Scrivici a info@ilbarrino.it per maggiori informazioni sui nostri servizi!",
+    "labels": {
+      "address": "Indirizzo",
+      "email": "Email",
+      "hours": "Orari"
+    }
+  },
+  "places": {
+    "title": "Luoghi di Interesse",
+    "subtitle": "Scopri i tesori nascosti e le meraviglie di Pisa",
+    "items": [
+      {
+        "name": "Torre Pendente di Pisa",
+        "description": "La celebre torre campanaria inclinata del XII secolo, simbolo di Pisa e icona dell'Italia nel mondo. Alta circa 56 metri con 294 gradini, offre una vista panoramica mozzafiato dalla cima dopo aver salito i suoi caratteristici scalini.",
+        "category": "Monumento Storico",
+        "image": "https://images.pexels.com/photos/208701/pexels-photo-208701.jpeg",
+        "map_link": "https://maps.google.com/?q=Torre+di+Pisa"
+      },
+      {
+        "name": "Cattedrale di Santa Maria Assunta",
+        "description": "Maestoso duomo romanico costruito dal 1064 con facciata in marmo bianco e grigio. L'interno a bande bianche e nere custodisce capolavori come il mosaico absidale di Cimabue e il pulpito gotico di Giovanni Pisano.",
+        "category": "Chiesa",
+        "image": "https://images.pexels.com/photos/161901/pisa-cathedral-italy-architecture-161901.jpeg",
+        "map_link": "https://maps.google.com/?q=Duomo+di+Pisa"
+      },
+      {
+        "name": "Battistero di San Giovanni",
+        "description": "Imponente battistero circolare in stile romanico-gotico del 1153, il più grande d'Italia. Famoso per la sua acustica eccezionale ed eco prolungata, custodisce un elegante fonte battesimale e il pulpito scolpito di Nicola Pisano.",
+        "category": "Monumento Religioso",
+        "image": "https://images.pexels.com/photos/208701/pexels-photo-208701.jpeg",
+        "map_link": "https://maps.google.com/?q=Battistero+Pisa"
+      },
+      {
+        "name": "Camposanto Monumentale",
+        "description": "Antico cimitero storico a portici, costruito con terra proveniente da Gerusalemme portata dai crociati. Le pareti erano adornate da affreschi trecenteschi come il Trionfo della Morte, oggi in parte restaurati.",
+        "category": "Sito Storico",
+        "image": "https://images.pexels.com/photos/1386604/pexels-photo-1386604.jpeg",
+        "map_link": "https://maps.google.com/?q=Camposanto+Monumentale+Pisa"
+      },
+      {
+        "name": "Chiesa di Santa Maria della Spina",
+        "description": "Piccola chiesa gotica del 1230 affacciata sul Lungarno, considerata un gioiello dell'architettura gotica italiana. Deve il nome a una reliquia della spina della corona di Cristo, con facciata riccamente decorata con guglie, rosoni e statue in marmo policromo.",
+        "category": "Chiesa",
+        "image": "https://images.pexels.com/photos/2467558/pexels-photo-2467558.jpeg",
+        "map_link": "https://maps.google.com/?q=Santa+Maria+della+Spina+Pisa"
+      },
+      {
+        "name": "Piazza dei Cavalieri",
+        "description": "Elegante piazza rinascimentale progettata da Giorgio Vasari per Cosimo I de' Medici. Antico centro del potere civile pisano, oggi vi si affacciano il Palazzo della Carovana (sede della Scuola Normale Superiore) con la facciata affrescata e la Chiesa di Santo Stefano dei Cavalieri.",
+        "category": "Palazzo Storico",
+        "image": "https://images.pexels.com/photos/3566226/pexels-photo-3566226.jpeg",
+        "map_link": "https://maps.google.com/?q=Piazza+dei+Cavalieri+Pisa"
+      },
+      {
+        "name": "Borgo Stretto e Lungarni",
+        "description": "Pittoresca via medievale nel cuore cittadino e scenografici viali lungo l'Arno. Borgo Stretto è fiancheggiata da portici medievali con negozi storici e caffè, mentre i Lungarni offrono file di palazzi storici dalle facciate colorate e scorci romantici illuminati di sera.",
+        "category": "Passeggiata",
+        "image": "https://images.pexels.com/photos/1174732/pexels-photo-1174732.jpeg",
+        "map_link": "https://maps.google.com/?q=Lungarni+Pisa"
+      },
+      {
+        "name": "Museo Nazionale di San Matteo",
+        "description": "Uno dei più importanti musei di Pisa, custodisce numerosi capolavori di pittura e scultura dal Medioevo al Rinascimento. La collezione include opere di artisti toscani come Nicola e Giovanni Pisano e preziose tavole trecentesche e quattrocentesche.",
+        "category": "Museo",
+        "image": "https://images.pexels.com/photos/2422588/pexels-photo-2422588.jpeg",
+        "map_link": "https://maps.google.com/?q=Museo+San+Matteo+Pisa"
+      },
+      {
+        "name": "Palazzo Blu",
+        "description": "Palazzo storico sul Lungarno, sede di un museo d'arte e centro culturale. Ospita collezioni permanenti con oltre 300 opere dal XIV al XX secolo tra dipinti, reperti archeologici e numismatica, oltre a prestigiose mostre temporanee internazionali.",
+        "category": "Museo",
+        "image": "https://images.pexels.com/photos/1891414/pexels-photo-1891414.jpeg",
+        "map_link": "https://maps.google.com/?q=Palazzo+Blu+Pisa"
+      },
+      {
+        "name": "Museo delle Navi Antiche",
+        "description": "Moderno museo archeologico negli Arsenali Medicei, dedicato alle navi romane rinvenute a Pisa. Espone sette imbarcazioni di epoca romana (III a.C. – VII d.C.) restaurate e circa 8.000 reperti, offrendo uno spaccato della Pisa marittima antica.",
+        "category": "Museo",
+        "image": "https://images.pexels.com/photos/1669799/pexels-photo-1669799.jpeg",
+        "map_link": "https://maps.google.com/?q=Museo+Navi+Antiche+Pisa"
+      },
+      {
+        "name": "Orto e Museo Botanico",
+        "description": "Giardino botanico storico fondato nel 1544, primo orto botanico universitario al mondo. Ospita serre tropicali, un arboreto con piante secolari e collezioni di piante rare. Nel piccolo museo sono esposti reperti botanici e cere anatomiche vegetali d'epoca.",
+        "category": "Museo/Natura",
+        "image": "https://images.pexels.com/photos/1194420/pexels-photo-1194420.jpeg",
+        "map_link": "https://maps.google.com/?q=Orto+Botanico+Pisa"
+      },
+      {
+        "name": "Murale 'Tuttomondo' di Keith Haring",
+        "description": "Grande murales di arte contemporanea realizzato nel 1989 dall'artista Keith Haring sulla parete esterna della Chiesa di S. Antonio Abate. L'opera coloratissima di 180 m² raffigura 30 figure stilizzate che simboleggiano pace e armonia nel mondo.",
+        "category": "Arte Contemporanea",
+        "image": "https://images.pexels.com/photos/1407322/pexels-photo-1407322.jpeg",
+        "map_link": "https://maps.google.com/?q=Keith+Haring+Pisa+Tuttomondo"
+      },
+      {
+        "name": "Museo dell'Opera del Duomo",
+        "description": "Raccoglie sculture medievali originali, dipinti e tesori provenienti dai monumenti di Piazza dei Miracoli, inclusi capolavori di Giovanni Pisano e altri maestri pisani. Un viaggio attraverso l'arte che ha reso famosa Pisa nel mondo.",
+        "category": "Museo",
+        "image": "https://images.pexels.com/photos/1499154/pexels-photo-1499154.jpeg",
+        "map_link": "https://maps.google.com/?q=Museo+Opera+Duomo+Pisa"
+      },
+      {
+        "name": "Museo delle Sinopie",
+        "description": "Esposizione unica dei disegni preparatori (sinopie) degli antichi affreschi del Camposanto, come quelli del Trionfo della Morte. Permette di apprezzare il 'dietro le quinte' tecnico degli affreschi trecenteschi pisani.",
+        "category": "Museo",
+        "image": "https://images.pexels.com/photos/2280571/pexels-photo-2280571.jpeg",
+        "map_link": "https://maps.google.com/?q=Museo+Sinopie+Pisa"
+      }
+    ]
+  },
+  "events": {
+    "title": "Info Eventi",
+    "subtitle": "Non perdere gli appuntamenti più interessanti della città",
+    "items": [
+      {
+        "name": "Capodanno Pisano",
+        "description": "Rievocazione storico-religiosa che celebra l'antico calendario pisano, secondo cui l'anno nuovo inizia il 25 marzo. Un corteo storico attraversa la città fino al Duomo, dove a mezzogiorno un raggio di sole che penetra dalla cupola segna simbolicamente l'ingresso nel nuovo anno.",
+        "date": "25 Marzo",
+        "image": "https://images.pexels.com/photos/1105766/pexels-photo-1105766.jpeg",
+        "link": "#"
+      },
+      {
+        "name": "Luminara di San Ranieri",
+        "description": "Festa cittadina in onore del patrono San Ranieri: la sera del 16 giugno oltre 100.000 lumini a cera illuminano tutti i palazzi lungo i Lungarni, creando un'atmosfera magica. La notte si conclude con spettacolari fuochi d'artificio sul fiume.",
+        "date": "16 Giugno",
+        "image": "https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg",
+        "link": "#"
+      },
+      {
+        "name": "Palio di San Ranieri (Regata Storica)",
+        "description": "Storica regata remiera sull'Arno tra i quattro antichi quartieri di Pisa (San Francesco, San Martino, Santa Maria e Sant'Antonio). Si svolge nel pomeriggio del giorno di San Ranieri: equipaggi in costume gareggiano su fanghi risalendo il fiume, rievocando le tradizioni marinare pisane.",
+        "date": "17 Giugno",
+        "image": "https://images.pexels.com/photos/1684187/pexels-photo-1684187.jpeg",
+        "link": "#"
+      },
+      {
+        "name": "Gioco del Ponte",
+        "description": "Spettacolare rievocazione in costume di una battaglia medievale sul Ponte di Mezzo. La città si divide nelle fazioni storiche di Tramontana e Mezzogiorno: dopo un corteo di oltre 700 armati cinquecenteschi, le squadre si affrontano spingendo un carrello lungo il ponte.",
+        "date": "Ultimo sabato di Giugno",
+        "image": "https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg",
+        "link": "#"
+      },
+      {
+        "name": "Pisa Book Festival",
+        "description": "Festival dedicato all'editoria indipendente con ospiti nazionali e internazionali, premi di traduzione, focus sulla poesia e attività per giovani lettori. Un appuntamento imperdibile per gli amanti della cultura letteraria.",
+        "date": "Settembre-Ottobre",
+        "image": "https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg",
+        "link": "#"
+      },
+      {
+        "name": "Internet Festival - Forme di Futuro",
+        "description": "Evento dedicato a internet, cultura digitale, tecnologia, etica digitale e innovazione. Promosso da CNR, Università di Pisa, Regione e altri enti, rappresenta un punto di riferimento nazionale per il digitale.",
+        "date": "Seconda settimana di Ottobre",
+        "image": "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg",
+        "link": "#"
+      },
+      {
+        "name": "Anima Mundi Festival",
+        "description": "Concerti di musica classica e sacra spesso nella scenografica cornice di Piazza dei Miracoli o in altri luoghi simbolici della città. Un'esperienza musicale unica che unisce arte e spiritualità.",
+        "date": "Settembre-Ottobre",
+        "image": "https://images.pexels.com/photos/164821/pexels-photo-164821.jpeg",
+        "link": "#"
+      }
+    ]
+  },
+  "tips": {
+    "title": "Consigli Utili",
+    "subtitle": "Tutto quello che devi sapere per una visita perfetta",
+    "categories": [
+      {
+        "name": "Come Muoversi",
+        "icon": "🚌",
+        "description": "Consigli pratici per spostarsi in città e raggiungere i luoghi d'interesse",
+        "tips": [
+          "Il centro storico è facilmente visitabile a piedi",
+          "Autobus urbani per collegamenti rapidi",
+          "Parcheggi disponibili nelle vicinanze del centro",
+          "La stazione ferroviaria è ben collegata al centro",
+          "Servizio taxi disponibile 24/7"
+        ]
+      },
+      {
+        "name": "Quando Visitare",
+        "icon": "🌤️",
+        "description": "Il periodo migliore per visitare Pisa e godersi al meglio la città",
+        "tips": [
+          "Primavera: clima mite e pochi turisti",
+          "Estate: alta stagione con molti eventi",
+          "Autunno: temperature gradevoli e colori suggestivi",
+          "Inverno: atmosfera raccolta e prezzi convenienti",
+          "Evitare i weekend estivi per meno affollamento"
+        ]
+      },
+      {
+        "name": "Shopping Locale",
+        "icon": "🛍️",
+        "description": "Dove trovare prodotti tipici e souvenir autentici",
+        "tips": [
+          "Corso Italia per lo shopping tradizionale",
+          "Mercato locale per prodotti freschi",
+          "Borgo Stretto per boutique caratteristiche",
+          "Prodotti tipici: olio d'oliva, vino, ceramiche",
+          "Artigianato locale nelle botteghe del centro"
+        ]
+      },
+      {
+        "name": "Informazioni Pratiche",
+        "icon": "ℹ️",
+        "description": "Servizi utili e informazioni per il soggiorno",
+        "tips": [
+          "Uffici informazioni turistiche nel centro",
+          "WiFi gratuito in molte piazze",
+          "Servizi bancari e ATM facilmente reperibili",
+          "Farmacie aperte anche nei festivi",
+          "Numeri di emergenza sempre disponibili"
+        ]
+      }
+    ]
+  },
+  "footer": {
+    "sponsor_description": "Il tuo chiosco bar dal 1970",
+    "follow_us": "Seguici",
+    "copyright": "© 2025 Guida Turistica di Pisa - Sponsorizzato da Il Barrino"
+  },
+  "common": {
+    "view_map": "Visualizza Mappa",
+    "more_info": "Maggiori Info",
+    "read_more": "Leggi di più",
+    "book_now": "Prenota Ora"
+  }
+}

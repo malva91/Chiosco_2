@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate="site_title">Il Barrino da Mario - Menu Digitale</title>
+    
+    <!-- Meta Tags -->
+    <meta name="description" content="Menu digitale multilingue del bar Il Barrino da Mario">
+    <meta name="keywords" content="bar, menu, caffè, colazioni, pranzi, Mario">
+    <meta name="author" content="Il Barrino da Mario">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css?v1.0.7">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="src/css/variables.css">
+    <link rel="stylesheet" href="src/css/main.css">
+    <link rel="stylesheet" href="src/css/components.css">
+    <link rel="stylesheet" href="src/css/responsive.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <h2 data-translate="loading">Caricamento...</h2>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>IL BARRINO DA MARIO</h1>
+                    <p data-translate="header_subtitle">Menu Digitale</p>
+                </div>
+                
+                <div class="header-controls">
+                    <!-- Language Selector -->
+                    <button id="language-btn" class="btn-icon" aria-label="Seleziona lingua">
+                        <i class="fas fa-globe"></i>
+                        <span id="current-language">IT</span>
+                    </button>
+                    
+                    <!-- Filter Toggle -->
+                    <button id="filter-btn" class="btn-icon" aria-label="Filtri">
+                        <i class="fas fa-filter"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Language Modal -->
+    <div id="language-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 data-translate="language_selector_title">Seleziona Lingua / Select Language</h3>
+                <button class="close-btn" aria-label="Chiudi">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="language-grid" class="language-grid">
+                    <!-- Languages will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Filter Modal -->
+    <div id="filter-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 data-translate="filter_title">Filtri</h3>
+                <button class="close-btn" aria-label="Chiudi">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="filter-section">
+                    <h4 data-translate="filter_allergens">Filtra allergeni da evitare</h4>
+                    <div id="allergen-filters" class="filter-grid">
+                        <!-- Allergen filters will be populated by JavaScript -->
+                    </div>
+                </div>
+                
+                <div class="filter-section">
+                    <h4 data-translate="filter_characteristics">Caratteristiche</h4>
+                    <div id="characteristic-filters" class="filter-grid">
+                        <!-- Characteristic filters will be populated by JavaScript -->
+                    </div>
+                </div>
+                
+                <div class="filter-actions">
+                    <button id="clear-filters" class="btn btn-secondary" data-translate="clear_filters">Pulisci Filtri</button>
+                    <button id="apply-filters" class="btn btn-primary" data-translate="apply_filters">Applica</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Search Section -->
+            <section class="search-section">
+                <div class="search-container">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="search-input" data-translate-placeholder="search_placeholder" placeholder="Cerca nel menu...">
+                        <button id="clear-search" class="clear-search" aria-label="Pulisci ricerca">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Disclaimers -->
+                <div class="disclaimers">
+                    <div class="disclaimer">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span data-translate="disclaimer_shared">Tutti i piatti sono preparati in un ambiente condiviso, di conseguenza non possiamo garantire che non ci siano contaminazioni</span>
+                    </div>
+                    <div class="disclaimer">
+                        <i class="fas fa-info-circle"></i>
+                        <span data-translate="disclaimer_service">Non si effettua servizio al tavolo. Ordinare al banco.</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Legend Section -->
+            <section class="legend-section">
+                <div class="legend-header">
+                    <h3 data-translate="legend_title">Legenda</h3>
+                    <p data-translate="legend_explanation">Clicca su un elemento per escludere i prodotti che lo contengono</p>
+                </div>
+                
+                <div class="legend-content">
+                    <div class="legend-group">
+                        <h4 data-translate="legend_allergens_title">Allergeni</h4>
+                        <div id="legend-allergens" class="legend-items">
+                            <!-- Allergen legend items will be populated by JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <div class="legend-group">
+                        <h4 data-translate="legend_characteristics_title">Caratteristiche</h4>
+                        <div id="legend-characteristics" class="legend-items">
+                            <!-- Characteristic legend items will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Game Invitation -->
+            <section class="game-invitation">
+                <div class="game-card">
+                    <div class="game-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <div class="game-content">
+                        <h3 data-translate="game_invitation_title">Tempo di attesa?</h3>
+                        <p data-translate="game_invitation_subtitle">Divertiti con il nostro gioco del dinosauro mentre aspetti!</p>
+                        <!-- Link to the game using a relative path without trailing query parameters -->
+                        <a href="gioco.html" class="btn btn-game">
+                            <i class="fas fa-play"></i>
+                            <span data-translate="game_button_text">Gioca Ora</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+                        <section class="game-invitation">
+                <div class="game-card">
+                    <div class="game-icon">
+                        <i class="fas fa-map"></i>
+                    </div>
+                    <div class="game-content">
+                        <h3 data-translate="guide_invitation_title">Oppura guarda la nostra guida per visitare Pisa</h3>
+                        <a href="./guida/index.html" class="btn btn-game">
+                            <i class="fas fa-play"></i>
+                            <span data-translate="guide_button_text">Vai alla Guida</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Menu Section -->
+            <section class="menu-section">
+                <div id="menu-container" class="menu-container">
+                    <!-- Menu categories will be populated by JavaScript -->
+                </div>
+                
+                <!-- No Results -->
+                <div id="no-results" class="no-results hidden">
+                    <div class="no-results-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3 data-translate="no_results">Nessun risultato</h3>
+                    <p data-translate="no_results_desc">Non sono stati trovati prodotti che corrispondono ai tuoi criteri di ricerca.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Review Section -->
+                <div class="review-section">
+                    <h3 data-translate="review_title">Ti è piaciuta la tua esperienza?</h3>
+                    <p data-translate="review_subtitle">Lascia una recensione e aiuta altri clienti!</p>
+                    <a href="https://share.google/xjoHT5zGgHGa8WLHv" target="_blank" class="btn btn-review">
+                        <i class="fab fa-google"></i>
+                        <span data-translate="review_button">Lascia Recensione</span>
+                    </a>
+                </div>
+                
+                <!-- Admin Link -->
+                <div class="admin-link">
+                    <a href="admin.html" class="admin-btn">
+                        <i class="fas fa-cog"></i>
+                        Admin
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <!-- Application constants -->
+    <script src="src/utils/constants.js"></script>
+    <!-- Shared utilities (hashing, flattening, nested value helpers) -->
+    <script src="src/js/core/utils.js"></script>
+    <!-- Firebase and translation services -->
+    <script src="src/js/core/firebaseService.js"></script>
+    <script src="src/js/core/translationService.js"></script>
+    <!-- Menu application -->
+    <script src="src/js/features/menu.js"></script>
+</body>
+</html>

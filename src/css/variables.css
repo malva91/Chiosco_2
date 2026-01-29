@@ -1,0 +1,204 @@
+/* CSS Variables - Warm Light Beige Palette */
+:root {
+  /* ——————————————————————————————————————————————————————————————————————————————
+     Core Brand Colors
+     —————————————————————————————————————————————————————————————————————————————— */
+  --color-primary:       #A66E4A; /* terracotta scuro */
+  --color-primary-light: #C09070; /* terracotta chiaro */
+  --color-primary-dark:  #7D4E30; /* terracotta profondo */
+  
+  --color-secondary:     #F5E9D2; /* crema tenue */
+  --color-accent:        #E8B588; /* pesca morbida */
+
+  /* ——————————————————————————————————————————————————————————————————————————————
+     Background & Surface
+     —————————————————————————————————————————————————————————————————————————————— */
+  --color-background:         #FAF5EE; /* beige chiaro */
+  --color-background-dark:    #724200; /* fondo scuro eventuale */
+  
+  --color-surface:            #F5E9D2; /* superficie principale */
+  --color-surface-elevated:   #FFFFFF; /* superfici elevate */
+  --color-surface-hover:      #EFE4D0; /* hover sui surface */
+
+  /* ——————————————————————————————————————————————————————————————————————————————
+     Text Palette
+     —————————————————————————————————————————————————————————————————————————————— */
+  --color-text:        #4A3022; /* marrone scuro */
+  --color-text-light:  #6B4F3A; /* marrone medio */
+  --color-text-muted:  #8D7C6D; /* taupe morbido */
+  --color-text-inverse: #FFFFFF; /* testo su sfondo scuro */
+
+  /* ——————————————————————————————————————————————————————————————————————————————
+     Status Indicators
+     —————————————————————————————————————————————————————————————————————————————— */
+  --color-success:       #6A9A46; /* verde caldo */
+  --color-success-light: #D9EAD3; /* verde chiaro */
+
+  --color-warning:       #E4A76C; /* ambra calda */
+  --color-warning-light: #F5E1C9; /* ambra chiaro */
+
+  --color-error:         #D9574F; /* rosso ruggine */
+  --color-error-light:   #F4C8C6; /* rosa cipria */
+
+  --color-info:          #1390CE; /* azzurro tenue */
+  --color-info-light:    #DCEEF7; /* azzurro chiarissimo */
+
+  /* ——————————————————————————————————————————————————————————————————————————————
+     Borders & Dividers
+     —————————————————————————————————————————————————————————————————————————————— */
+  --color-border:       #E5D7C1; /* beige medio */
+  --color-border-light: #EFE4D0; /* beige chiaro */
+  --color-border-dark:  #C4B39A; /* marrone chiaro */
+
+  /* ——————————————————————————————————————————————————————————————————————————————
+     Interactive States
+     —————————————————————————————————————————————————————————————————————————————— */
+  --color-hover:  var(--color-surface-hover);
+  --color-active: var(--color-primary-light);
+  --color-focus:  var(--color-primary);
+
+  /* ——————————————————————————————————————————————————————————————————————————————
+     Game & Admin Theming
+     —————————————————————————————————————————————————————————————————————————————— */
+  --color-game-primary:   var(--color-primary);
+  --color-game-secondary: var(--color-secondary);
+  --color-game-accent:     #F39C12; /* arancio vibrante */
+  --color-game-danger:     var(--color-error);
+
+  --color-admin-primary:   #7A6E65; /* grigio taupe caldo */
+  --color-admin-secondary: #8D7C6D; /* taupe morbido */
+  --color-admin-accent:    var(--color-accent);
+
+  /* ——————————————————————————————————————————————————————————————————————————————
+     Spacing Scale
+     —————————————————————————————————————————————————————————————————————————————— */
+  --spacing-xs:  0.25rem;
+  --spacing-sm:  0.5rem;
+  --spacing-md:  1rem;
+  --spacing-lg:  1.5rem;
+  --spacing-xl:  2rem;
+  --spacing-2xl: 3rem;
+  --spacing-3xl: 4rem;
+
+  /* ——————————————————————————————————————————————————————————————————————————————
+     Typography
+     —————————————————————————————————————————————————————————————————————————————— */
+  --font-family:       'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-size-xs:      0.75rem;
+  --font-size-sm:      0.875rem;
+  --font-size-base:    1rem;
+  --font-size-lg:      1.125rem;
+  --font-size-xl:      1.25rem;
+  --font-size-2xl:     1.5rem;
+  --font-size-3xl:     1.875rem;
+  --font-size-4xl:     2.25rem;
+
+  --font-weight-light:   300;
+  --font-weight-normal:  400;
+  --font-weight-medium:  500;
+  --font-weight-semibold:600;
+  --font-weight-bold:    700;
+
+  --line-height-tight:   1.2;
+  --line-height-normal:  1.5;
+  --line-height-relaxed: 1.75;
+
+  /* ——————————————————————————————————————————————————————————————————————————————
+     Borders & Shadows
+     —————————————————————————————————————————————————————————————————————————————— */
+  --border-radius-sm:   0.375rem;
+  --border-radius-md:   0.5rem;
+  --border-radius-lg:   0.75rem;
+  --border-radius-xl:   1rem;
+  --border-radius-full: 9999px;
+
+  --border-width:       1px;
+
+  --shadow-sm:  0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md:  0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+  --shadow-lg:  0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+  --shadow-xl:  0 20px 25px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.04);
+
+  /* ——————————————————————————————————————————————————————————————————————————————
+     Transitions & Z-Index
+     —————————————————————————————————————————————————————————————————————————————— */
+  --transition-fast:    150ms ease-in-out;
+  --transition-normal:  250ms ease-in-out;
+  --transition-slow:    350ms ease-in-out;
+
+  --z-dropdown:           1000;
+  --z-sticky:             1020;
+  --z-fixed:              1030;
+  --z-modal-backdrop:     1040;
+  --z-modal:              1050;
+  --z-popover:            1060;
+  --z-tooltip:            1070;
+  --z-toast:              1080;
+
+  /* ——————————————————————————————————————————————————————————————————————————————
+     Layout & Breakpoints
+     —————————————————————————————————————————————————————————————————————————————— */
+  --container-max-width:  1200px;
+  --header-height:        80px;
+  --sidebar-width:        280px;
+
+  --breakpoint-sm:  640px;
+  --breakpoint-md:  768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl:1536px;
+
+  /* ——————————————————————————————————————————————————————————————————————————————
+     Compatibility aliases (do not change palette)
+     These variables are referenced in legacy CSS; keep them mapped to the existing design tokens.
+     —————————————————————————————————————————————————————————————————————————————— */
+  --border-color:        var(--color-border);
+  --border-color-light:  var(--color-border-light);
+  --border-color-dark:   var(--color-border-dark);
+
+  --color-text-primary:   var(--color-text);
+  --color-text-secondary: var(--color-text-light);
+
+  --radius-sm: var(--border-radius-sm);
+  --radius-lg: var(--border-radius-lg);
+}
+
+/* Component-specific custom properties */
+:root {
+  /* Buttons */
+  --btn-padding-sm: var(--spacing-xs) var(--spacing-sm);
+  --btn-padding-md: var(--spacing-sm) var(--spacing-md);
+  --btn-padding-lg: var(--spacing-md) var(--spacing-lg);
+
+  /* Cards */
+  --card-padding:       var(--spacing-lg);
+  --card-border-radius: var(--border-radius-lg);
+  --card-shadow:        var(--shadow-md);
+
+  /* Modals */
+  --modal-backdrop:      rgba(0, 0, 0, 0.5);
+  --modal-border-radius: var(--border-radius-xl);
+  --modal-padding:       var(--spacing-xl);
+
+  /* Forms */
+  --input-height:            2.75rem;
+  --input-padding:           var(--spacing-sm) var(--spacing-md);
+  --input-border-radius:     var(--border-radius-md);
+  --input-border-color:      var(--color-border);
+  --input-focus-border-color:var(--color-primary);
+  --input-focus-ring:        0 0 0 3px rgba(166, 110, 74, 0.2);
+
+  /* Loading spinner */
+  --loading-spinner-size:   2rem;
+  --loading-spinner-border: 3px;
+
+  /* Game-specific */
+  --game-canvas-border:        2px solid var(--color-primary);
+  --game-canvas-border-radius: var(--border-radius-lg);
+  --game-stats-height:         60px;
+
+  /* Admin-specific */
+  --admin-sidebar-width: 280px;
+  --admin-header-height: 70px;
+  --admin-nav-height:    60px;
+}

@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta name="theme-color" content="#A66E4A" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+  <title>Il Barrino da Mario • Gioco del Dinosauro</title>
+  <meta name="description" content="Gioco del Dinosauro: salta gli ostacoli, raccogli pizze e scala la classifica del Barrino da Mario." />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="src/css/variables.css" />
+  <link rel="stylesheet" href="src/css/game.css" />
+  <link rel="stylesheet" href="src/css/responsive.css" />
+
+  <!-- Icons -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- App scripts (defer) -->
+  <script src="src/js/core/translationService.js" defer></script>
+  <script src="src/js/features/game.js" defer></script>
+</head>
+
+<body class="game-page">
+  <a class="sr-only sr-only-focusable" href="#game-main">Vai al gioco</a>
+
+  <!-- Loading -->
+  <div class="loading-screen" id="loading-screen" aria-label="Caricamento" role="status">
+    <div class="loading-spinner" aria-hidden="true"></div>
+  </div>
+
+  <!-- Orientation notice (mobile) -->
+  <aside class="orientation-notice hidden" id="orientation-notice" role="alert" aria-live="polite" aria-labelledby="orientation-title">
+    <div class="orientation-content">
+      <div class="orientation-icon" aria-hidden="true">
+        <i class="fas fa-mobile-alt"></i>
+        <i class="fas fa-sync-alt"></i>
+      </div>
+
+      <h2 id="orientation-title">Per una migliore esperienza</h2>
+      <p id="orientation-message">Ruota il dispositivo in orizzontale</p>
+
+      <p class="orientation-note">
+        <i class="fas fa-info-circle" aria-hidden="true"></i>
+        <span id="orientation-note">Il gioco è ottimizzato per la modalità landscape</span>
+      </p>
+
+      <button class="btn btn-primary" id="continue-portrait" type="button" aria-label="Continua in modalità portrait">
+        <span id="continue-portrait-text">Continua comunque</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- App shell -->
+  <div class="game-container" id="game-container">
+    <!-- Header / Navbar -->
+    <header class="game-header" role="banner">
+      <div class="game-header-content">
+        <div class="game-logo" aria-label="Titolo gioco">
+          <h1>🦖 Il Barrino da Mario</h1>
+          <p id="game-subtitle">Gioco del Dinosauro</p>
+        </div>
+
+        <!-- IMPORTANT: questi sono i 3 tasti navbar (ID usati dal JS) -->
+        <nav class="game-controls" aria-label="Navigazione gioco">
+          <button class="btn btn-secondary btn-icon" id="btn-back-menu" type="button" aria-label="Torna al menu principale">
+            <i class="fas fa-arrow-left" aria-hidden="true"></i>
+          </button>
+
+          <button class="btn btn-secondary btn-icon" id="btn-language" type="button" aria-label="Cambia lingua">
+            <i class="fas fa-language" aria-hidden="true"></i>
+          </button>
+
+          <button class="btn btn-secondary btn-icon" id="btn-leaderboard" type="button" aria-label="Visualizza classifica">
+            <i class="fas fa-trophy" aria-hidden="true"></i>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Instructions -->
+    <section class="game-instructions" aria-labelledby="instructions-title">
+      <h2 id="instructions-title">Come si gioca</h2>
+
+      <div class="instructions-grid" role="list">
+        <article class="instruction-item" role="listitem">
+          <div class="instruction-icon" aria-hidden="true"><i class="fas fa-hand-pointer"></i></div>
+          <p id="instruction-tap">Tocca lo schermo per saltare (o premi SPAZIO su desktop)</p>
+        </article>
+
+        <article class="instruction-item" role="listitem">
+          <div class="instruction-icon" aria-hidden="true"><i class="fas fa-running"></i></div>
+          <p id="instruction-avoid">Evita gli ostacoli per continuare a correre</p>
+        </article>
+
+        <article class="instruction-item" role="listitem">
+          <div class="instruction-icon" aria-hidden="true"><i class="fas fa-pizza-slice"></i></div>
+          <p id="instruction-collect">Raccogli pizze per punti bonus</p>
+        </article>
+
+        <article class="instruction-item" role="listitem">
+          <div class="instruction-icon" aria-hidden="true"><i class="fas fa-trophy"></i></div>
+          <p id="instruction-score">Più resisti, più alto sarà il punteggio!</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Main -->
+    <main class="game-area" id="game-main">
+      <div class="game-layout">
+        <!-- Game play -->
+        <section class="game-play" aria-labelledby="game-title">
+          <h2 class="sr-only" id="game-title">Area di gioco</h2>
+
+          <!-- Stats -->
+          <div class="game-stats" role="region" aria-label="Statistiche di gioco">
+            <div class="stat-item">
+              <span id="label-score">Punteggio</span>
+              <span class="stat-value" id="score" aria-live="polite">0</span>
+            </div>
+
+            <div class="stat-item">
+              <span id="label-pizzas">Pizze</span>
+              <span class="stat-value" id="pizzas" aria-live="polite">0</span>
+            </div>
+
+            <div class="stat-item">
+              <span id="label-best">Record</span>
+              <span class="stat-value" id="best-score" aria-live="polite">0</span>
+            </div>
+          </div>
+
+          <!-- Canvas -->
+          <div class="game-canvas-container">
+            <canvas id="gameCanvas" width="1000" height="300" role="img" aria-label="Canvas del gioco"></canvas>
+
+            <div class="game-controls-text" id="game-controls-text" aria-hidden="true">
+              <span id="start-prompt">Tocca per iniziare</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Sidebar leaderboard preview -->
+        <aside class="game-sidebar" aria-label="Classifica Top 10">
+          <section class="leaderboard-section" aria-labelledby="leaderboard-title">
+            <h3 id="leaderboard-title">Classifica Top 10</h3>
+
+            <div class="leaderboard-container">
+              <ul class="leaderboard-list" id="leaderboard-list" role="list">
+                <li class="no-scores-game">
+                  <i class="fas fa-trophy" aria-hidden="true"></i>
+                  <p id="no-scores-text">Nessun punteggio salvato</p>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </aside>
+      </div>
+    </main>
+  </div>
+
+  <!-- Game over modal -->
+  <dialog class="game-over-modal" id="game-over-modal" role="dialog" aria-modal="true" aria-labelledby="game-over-title">
+    <div class="game-over-content">
+      <h2 id="game-over-title">Game Over!</h2>
+      <p id="game-over-message">Punteggio finale</p>
+      <div class="final-score" id="final-score" aria-live="assertive">0</div>
+
+      <!-- Save score -->
+      <form class="save-score-section" id="save-score-section" aria-labelledby="save-score-title">
+        <h3 class="sr-only" id="save-score-title">Salva il tuo punteggio</h3>
+
+        <label for="player-name" id="label-player-name">Il tuo nome:</label>
+        <input
+          id="player-name"
+          name="player-name"
+          type="text"
+          maxlength="20"
+          autocomplete="off"
+          placeholder="Inserisci nome..."
+          aria-required="true"
+        />
+
+        <button class="btn btn-secondary" id="use-random-name" type="button">
+          <i class="fas fa-dice" aria-hidden="true"></i>
+          <span id="random-name-text">Nome casuale</span>
+        </button>
+
+        <div class="save-score-actions">
+          <button class="btn btn-primary" id="save-score-btn" type="button">
+            <i class="fas fa-save" aria-hidden="true"></i>
+            <span id="save-score-text">Salva</span>
+          </button>
+
+          <button class="btn btn-secondary" id="skip-save-btn" type="button">
+            <span id="skip-save-text">Salta</span>
+          </button>
+        </div>
+      </form>
+
+      <div class="game-over-actions">
+        <button class="btn btn-primary" id="restartBtn" type="button">
+          <i class="fas fa-redo" aria-hidden="true"></i>
+          <span id="restart-text">Riprova</span>
+        </button>
+
+        <button class="btn btn-secondary" id="view-leaderboard-btn" type="button">
+          <i class="fas fa-trophy" aria-hidden="true"></i>
+          <span id="view-leaderboard-text">Classifica</span>
+        </button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Language selector modal -->
+  <dialog class="language-selector hidden" id="language-selector" role="dialog" aria-modal="true" aria-labelledby="language-title">
+    <div class="language-selector-content">
+      <header class="language-selector-header">
+        <h3 id="language-title">Seleziona lingua</h3>
+        <button class="btn btn-icon close-btn" id="close-language-btn" type="button" aria-label="Chiudi selezione lingua">
+          <i class="fas fa-times" aria-hidden="true"></i>
+        </button>
+      </header>
+
+      <div class="language-selector-body" id="language-options">
+        <!-- Popolato da JS -->
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Full leaderboard modal -->
+  <dialog class="modal leaderboard-modal hidden" id="leaderboard-modal" role="dialog" aria-modal="true" aria-labelledby="modal-leaderboard-title">
+    <div class="modal-content">
+      <header class="modal-header">
+        <h3 id="modal-leaderboard-title">Classifica completa</h3>
+        <button class="btn btn-icon close-btn" id="close-leaderboard-modal" type="button" aria-label="Chiudi classifica">
+          <i class="fas fa-times" aria-hidden="true"></i>
+        </button>
+      </header>
+
+      <div class="modal-body">
+        <div class="leaderboard-container">
+          <ul class="leaderboard-list" id="modal-leaderboard-list" role="list">
+            <li class="no-scores">
+              <i class="fas fa-trophy" aria-hidden="true"></i>
+              <p>Nessun punteggio salvato</p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-primary" id="play-again-btn" type="button">
+            <i class="fas fa-play" aria-hidden="true"></i>
+            <span>Gioca ancora</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <noscript>
+    <div class="noscript">
+      Questo gioco richiede JavaScript attivo.
+    </div>
+  </noscript>
+</body>
+</html>
