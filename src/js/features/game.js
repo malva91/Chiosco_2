@@ -533,9 +533,20 @@ class GameEngine {
             restartBtn.addEventListener('click', () => this.restart());
         }
 
-        const leaderboardBtn = GameUtils.safeGetElementById('leaderboard-btn');
-        if (leaderboardBtn) {
-            leaderboardBtn.addEventListener('click', () => this.showLeaderboardModal());
+        // Pulsanti navbar
+        const btnBackMenu = GameUtils.safeGetElementById('btn-back-menu');
+        if (btnBackMenu) {
+            btnBackMenu.addEventListener('click', () => window.location.href = 'index.html');
+        }
+
+        const btnLanguage = GameUtils.safeGetElementById('btn-language');
+        if (btnLanguage) {
+            btnLanguage.addEventListener('click', () => this.toggleLanguageSelector());
+        }
+
+        const btnLeaderboard = GameUtils.safeGetElementById('btn-leaderboard');
+        if (btnLeaderboard) {
+            btnLeaderboard.addEventListener('click', () => this.showLeaderboardModal());
         }
 
         const saveScoreBtn = GameUtils.safeGetElementById('save-score-btn');
@@ -553,7 +564,6 @@ class GameEngine {
             useRandomName.addEventListener('click', () => this.useRandomName());
         }
 
-        // Modal classifica
         const playAgainBtn = GameUtils.safeGetElementById('play-again-btn');
         if (playAgainBtn) {
             playAgainBtn.addEventListener('click', () => {
@@ -562,20 +572,14 @@ class GameEngine {
             });
         }
 
-        const closeLeaderboard = GameUtils.safeQuerySelector('.close-leaderboard');
-        if (closeLeaderboard) {
-            closeLeaderboard.addEventListener('click', () => this.hideLeaderboardModal());
+        const closeLeaderboardBtn = GameUtils.safeGetElementById('close-leaderboard-modal');
+        if (closeLeaderboardBtn) {
+            closeLeaderboardBtn.addEventListener('click', () => this.hideLeaderboardModal());
         }
 
-        // Selettore lingua
-        const languageBtn = GameUtils.safeGetElementById('language-btn-game');
-        if (languageBtn) {
-            languageBtn.addEventListener('click', () => this.toggleLanguageSelector());
-        }
-
-        const closeLanguageSelector = GameUtils.safeQuerySelector('#language-selector-game .close-btn');
-        if (closeLanguageSelector) {
-            closeLanguageSelector.addEventListener('click', () => this.hideLanguageSelector());
+        const closeLanguageBtn = GameUtils.safeGetElementById('close-language-btn');
+        if (closeLanguageBtn) {
+            closeLanguageBtn.addEventListener('click', () => this.hideLanguageSelector());
         }
 
         // Orientamento
@@ -703,7 +707,7 @@ class GameEngine {
     updateLanguageSelector() {
         if (!this.translationService) return;
 
-        const languageGrid = GameUtils.safeGetElementById('language-grid-game');
+        const languageGrid = GameUtils.safeGetElementById('language-options');
         if (!languageGrid) return;
 
         const availableLanguages = this.translationService.getAvailableLanguagesForUI();
@@ -729,16 +733,16 @@ languageGrid.innerHTML = availableLanguages.map(lang => `
     }
 
     toggleLanguageSelector() {
-        const selector = GameUtils.safeGetElementById('language-selector-game');
+        const selector = GameUtils.safeGetElementById('language-selector');
         if (selector) {
-            selector.classList.toggle('show');
+            selector.classList.toggle('hidden');
         }
     }
 
     hideLanguageSelector() {
-        const selector = GameUtils.safeGetElementById('language-selector-game');
+        const selector = GameUtils.safeGetElementById('language-selector');
         if (selector) {
-            selector.classList.remove('show');
+            selector.classList.add('hidden');
         }
     }
 
@@ -1124,27 +1128,24 @@ languageGrid.innerHTML = availableLanguages.map(lang => `
     }
 
     showGameOver() {
-        const gameOver = GameUtils.safeGetElementById('gameOver');
-        const finalScore = GameUtils.safeGetElementById('finalScore');
+        const modal = GameUtils.safeGetElementById('game-over-modal');
+        const finalScore = GameUtils.safeGetElementById('final-score');
         const saveScoreSection = GameUtils.safeGetElementById('save-score-section');
-        const defaultButtons = GameUtils.safeGetElementById('default-buttons');
 
-        if (gameOver) gameOver.classList.add('show');
+        if (modal) modal.classList.add('show');
         if (finalScore) finalScore.textContent = Math.floor(this.score);
 
-        if (this.showSaveScore) {
-            if (saveScoreSection) saveScoreSection.style.display = 'block';
-            if (defaultButtons) defaultButtons.style.display = 'none';
+        if (this.showSaveScore && saveScoreSection) {
+            saveScoreSection.style.display = 'block';
             this.generateRandomName();
-        } else {
-            if (saveScoreSection) saveScoreSection.style.display = 'none';
-            if (defaultButtons) defaultButtons.style.display = 'flex';
+        } else if (saveScoreSection) {
+            saveScoreSection.style.display = 'none';
         }
     }
 
     hideGameOver() {
-        const gameOver = GameUtils.safeGetElementById('gameOver');
-        if (gameOver) gameOver.classList.remove('show');
+        const modal = GameUtils.safeGetElementById('game-over-modal');
+        if (modal) modal.classList.remove('show');
     }
 
     generateRandomName() {
@@ -1203,64 +1204,72 @@ languageGrid.innerHTML = availableLanguages.map(lang => `
     showLeaderboardModal() {
         const modal = GameUtils.safeGetElementById('leaderboard-modal');
         if (modal) {
-            modal.style.display = 'flex';
+            modal.classList.remove('hidden');
+            modal.classList.add('show');
             this.updateLeaderboardModal();
         }
     }
 
     hideLeaderboardModal() {
         const modal = GameUtils.safeGetElementById('leaderboard-modal');
-        if (modal) modal.style.display = 'none';
+        if (modal) {
+            modal.classList.remove('show');
+            modal.classList.add('hidden');
+        }
     }
 
     updateLeaderboardModal() {
-        const leaderboardList = GameUtils.safeGetElementById('leaderboard-list');
-        const noScoresModal = GameUtils.safeGetElementById('no-scores-modal');
-
+        const leaderboardList = GameUtils.safeGetElementById('modal-leaderboard-list');
         if (!leaderboardList) return;
 
         if (this.leaderboard.length === 0) {
-            leaderboardList.style.display = 'none';
-            if (noScoresModal) noScoresModal.style.display = 'block';
+            leaderboardList.innerHTML = `
+                <li class="no-scores">
+                    <i class="fas fa-trophy"></i>
+                    <p>Nessun punteggio salvato</p>
+                </li>
+            `;
             return;
         }
-
-        leaderboardList.style.display = 'block';
-        if (noScoresModal) noScoresModal.style.display = 'none';
 
         leaderboardList.innerHTML = this.leaderboard.map((entry, index) => {
             const rankClass = index === 0 ? 'top-1' : index === 1 ? 'top-2' : index === 2 ? 'top-3' : '';
             return `
-                <div class="leaderboard-entry ${rankClass}">
-                    <div class="rank">#${index + 1}</div>
-                    <div class="name">${entry.name}</div>
-                    <div class="score">${entry.score}</div>
-                </div>
+                <li class="game-leaderboard-entry ${rankClass}">
+                    <span class="rank">#${index + 1}</span>
+                    <span class="name">${entry.name}</span>
+                    <span class="score">${entry.score}</span>
+                    <span class="date">${entry.date}</span>
+                </li>
             `;
         }).join('');
     }
 
     updateLeaderboardDisplay() {
-        const leaderboardDiv = GameUtils.safeGetElementById('leaderboard');
-        const noScores = GameUtils.safeGetElementById('no-scores');
-
-        if (!leaderboardDiv) return;
+        const leaderboardList = GameUtils.safeGetElementById('leaderboard-list');
+        if (!leaderboardList) return;
 
         if (this.leaderboard.length === 0) {
-            leaderboardDiv.innerHTML = '';
-            if (noScores) noScores.style.display = 'block';
+            leaderboardList.innerHTML = `
+                <li class="no-scores-game">
+                    <i class="fas fa-trophy"></i>
+                    <p id="no-scores-text">Nessun punteggio salvato</p>
+                </li>
+            `;
             return;
         }
 
-        if (noScores) noScores.style.display = 'none';
-
-        leaderboardDiv.innerHTML = this.leaderboard.slice(0, 5).map((entry, index) => `
-            <div class="leaderboard-entry">
-                <span class="rank">#${index + 1}</span>
-                <span class="name">${entry.name}</span>
-                <span class="score">${entry.score}</span>
-            </div>
-        `).join('');
+        leaderboardList.innerHTML = this.leaderboard.slice(0, 10).map((entry, index) => {
+            const rankClass = index === 0 ? 'top-1' : index === 1 ? 'top-2' : index === 2 ? 'top-3' : '';
+            return `
+                <li class="game-leaderboard-entry ${rankClass}">
+                    <span class="rank">#${index + 1}</span>
+                    <span class="name">${entry.name}</span>
+                    <span class="score">${entry.score}</span>
+                    <span class="date">${entry.date}</span>
+                </li>
+            `;
+        }).join('');
     }
 
     loadHighScore() {
@@ -1325,12 +1334,10 @@ languageGrid.innerHTML = availableLanguages.map(lang => `
 
     updateUI() {
         const scoreEl = GameUtils.safeGetElementById('score');
-        const highScoreEl = GameUtils.safeGetElementById('highScore');
-        const speedEl = GameUtils.safeGetElementById('speed');
+        const bestScoreEl = GameUtils.safeGetElementById('best-score');
 
         if (scoreEl) scoreEl.textContent = Math.floor(this.score);
-        if (highScoreEl) highScoreEl.textContent = this.highScore;
-        if (speedEl) speedEl.textContent = this.speed.toFixed(1);
+        if (bestScoreEl) bestScoreEl.textContent = this.highScore;
     }
 
     // ============================================================================
