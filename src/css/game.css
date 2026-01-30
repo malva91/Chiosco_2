@@ -196,6 +196,7 @@
   min-height: 48px;
   background-color: var(--color-background);
   border-radius: var(--border-radius-md);
+  transition: all var(--transition-fast);
 }
 
 .stat-item span:first-child {
@@ -266,6 +267,7 @@
   pointer-events: none;
   transition: all var(--transition-normal);
   padding: var(--spacing-md);
+  backdrop-filter: blur(2px);
 }
 
 .game-over-modal.show {
@@ -282,12 +284,14 @@
   text-align: center;
   max-width: 500px;
   width: 100%;
-  transform: scale(0.95);
-  transition: transform var(--transition-normal);
+  transform: scale(0.95) translateY(20px);
+  transition: all var(--transition-normal);
+  opacity: 0;
 }
 
 .game-over-modal.show .game-over-content {
-  transform: scale(1);
+  transform: scale(1) translateY(0);
+  opacity: 1;
 }
 
 .game-over-content h2 {
@@ -475,6 +479,7 @@
 .leaderboard-entry:hover,
 .game-leaderboard-entry:hover {
   background-color: var(--color-background);
+  transition: all var(--transition-fast);
 }
 
 .leaderboard-entry:last-child,
@@ -705,12 +710,60 @@
 
 /* Riduce le animazioni per dispositivi con prestazioni limitate */
 @media (prefers-reduced-motion: reduce) {
-  .game-canvas-container:active {
+  .btn,
+  .btn-primary,
+  .btn-secondary,
+  .btn-icon,
+  .close-btn,
+  .random-name-btn,
+  .btn-back-menu,
+  .instruction-item,
+  .leaderboard-entry,
+  .game-leaderboard-entry,
+  #gameCanvas {
+    transition: none !important;
+  }
+
+  .btn::before,
+  .btn-icon::before,
+  .close-btn::before,
+  .random-name-btn::before,
+  .language-selector-body button::before,
+  .language-selector-body .lang-option::before {
+    transition: none !important;
+  }
+
+  .btn:hover:not(:disabled),
+  .btn-primary:hover:not(:disabled),
+  .btn-secondary:hover:not(:disabled),
+  .btn-icon:hover,
+  .close-btn:hover,
+  .random-name-btn:hover,
+  .instruction-item:hover,
+  .game-controls .btn:hover {
     transform: none;
   }
-  
-  .instruction-item:hover {
-    transform: none;
+
+  .btn:active,
+  .btn-primary:active,
+  .btn-secondary:active,
+  .btn-icon:active,
+  .close-btn:active,
+  .random-name-btn:active,
+  .instruction-item:active,
+  .leaderboard-entry:active,
+  .game-leaderboard-entry:active,
+  .game-controls .btn:active,
+  #gameCanvas:active {
+    transform: none !important;
+  }
+
+  .game-over-content {
+    transition: none !important;
+  }
+
+  .game-over-modal {
+    transition: none !important;
   }
 }
 
@@ -931,6 +984,21 @@
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border-width: 0;
+}
+
+/* Global Interactive Elements */
+button,
+a,
+input,
+textarea,
+select {
+  position: relative;
+}
+
+/* Uniform focus ring for all interactive elements */
+:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
 }
 
 /* ====================================== */
